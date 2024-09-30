@@ -95,19 +95,21 @@ class _homeViewState extends State<homeView> {
           const Padding(
             padding: EdgeInsets.only(top: 15, left: 30.0, right: 30),
             child: customButton(
-              text: "Sign In with Google",
+              text: "Continue with Email",
               buttonColor: Color(0xffEAE9F1),
-              textCOlor: Colors.black,
-              iconname: Icons.snapchat_sharp,
+              textCOlor: Color.fromARGB(255, 86, 86, 86),
+              iconname: Iconsax.flash_circle,
               iconColor: Colors.black,
             ),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 15, left: 30.0, right: 30),
             child: customButton(
-              text: "Continue with Email",
-              buttonColor: Colors.red,
-              textCOlor: Colors.white,
+              text: "Sign In with Apple ID",
+              buttonColor: Color(0xffEAE9F1),
+              textCOlor: Color.fromARGB(255, 86, 86, 86),
+              iconname: Icons.apple,
+              iconColor: Colors.black,
             ),
           ),
         ],
