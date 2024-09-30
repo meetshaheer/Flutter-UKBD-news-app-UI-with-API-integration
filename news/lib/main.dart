@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/API/api-call.dart';
 
 void main(List<String> args) {
   runApp(myApp());
@@ -21,7 +22,20 @@ class newsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Text("dataaa")),
+      body: SafeArea(
+        child: FutureBuilder(
+            future: getTechCrunchData(),
+            builder: (context, AsyncSnapshot snapshot) {
+              return ListView.builder(
+                  itemCount: techCrunchData.length,
+                  itemBuilder: (context, index) {
+                    var data = techCrunchData[index];
+                    return ListTile(
+                      title: Text(data.title ?? ""),
+                    );
+                  });
+            }),
+      ),
     );
   }
 }
