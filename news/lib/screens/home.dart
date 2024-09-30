@@ -82,7 +82,11 @@ class _homeViewState extends State<homeView> {
             ),
           ),
           SizedBox(
-            child: ElevatedButton(onPressed: (){}, child: text),
+            child: ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  children: [Icon(Iconsax.env)],
+                )),
           ),
         ],
       ),
