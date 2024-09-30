@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 class homeView extends StatefulWidget {
   const homeView({super.key});
@@ -48,7 +49,7 @@ class _homeViewState extends State<homeView> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: EdgeInsets.all(30.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Container(
@@ -81,14 +82,93 @@ class _homeViewState extends State<homeView> {
               ),
             ),
           ),
-          SizedBox(
-            child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  children: [Icon(Iconsax.env)],
-                )),
+          const Padding(
+            padding: EdgeInsets.only(left: 30.0, right: 30),
+            child: customButton(
+              text: "Continue with Email",
+              buttonColor: Colors.red,
+              textCOlor: Colors.white,
+              iconname: Iconsax.direct,
+              iconColor: Colors.white,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 15, left: 30.0, right: 30),
+            child: customButton(
+              text: "Sign In with Google",
+              buttonColor: Color(0xffEAE9F1),
+              textCOlor: Colors.black,
+              iconname: Icons.snapchat_sharp,
+              iconColor: Colors.black,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 15, left: 30.0, right: 30),
+            child: customButton(
+              text: "Continue with Email",
+              buttonColor: Colors.red,
+              textCOlor: Colors.white,
+            ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class customButton extends StatelessWidget {
+  const customButton({
+    super.key,
+    required this.text,
+    this.iconname,
+    required this.buttonColor,
+    required this.textCOlor,
+    this.iconColor,
+  });
+
+  final String text;
+  final IconData? iconname;
+  final Color buttonColor;
+  final Color textCOlor;
+  final Color? iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60,
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ButtonStyle(
+          shape: const WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+          ),
+          backgroundColor: WidgetStatePropertyAll(buttonColor),
+        ),
+        onPressed: () {},
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              iconname,
+              color: iconColor,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                fontFamily: "MontM",
+                fontSize: 13,
+                color: textCOlor,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
