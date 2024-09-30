@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news/API/api-call.dart';
-import 'package:news/constants/constant.dart';
-import 'package:news/screen-contents/onboarding-buttons.dart';
-import 'package:news/screens/news-screen.dart';
-import 'package:news/screens/signIn-options.dart';
 import 'package:news/screens/on_boarding.dart';
 
 void main(List<String> args) {
@@ -30,6 +22,6 @@ class newsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return newsScreen();
+    return onBoarding();
   }
 }

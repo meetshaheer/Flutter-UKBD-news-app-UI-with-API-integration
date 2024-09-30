@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/constants/constant.dart';
+import 'package:news/screens/signIn-options.dart';
 
 class onBoardingButton extends StatelessWidget {
   const onBoardingButton({
@@ -37,8 +38,10 @@ class onBoardingButton extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  if (currentIndex == onBoardingContent.length - 1) {}
-                  _controller?.nextPage(duration: Duration(milliseconds: 01), curve: Curves.ease);
+                  if (currentIndex == onBoardingContent.length - 1) {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const signinOptions()));
+                  }
+                  _controller?.nextPage(duration: const Duration(milliseconds: 01), curve: Curves.ease);
                 },
                 child: Text(
                   currentIndex == onBoardingContent.length - 1 ? "Next" : "Continue",

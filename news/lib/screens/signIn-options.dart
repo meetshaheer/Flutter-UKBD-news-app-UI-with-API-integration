@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:news/screen-contents/custom-buttons.dart';
+import 'package:news/screens/news-screen.dart';
 
 class signinOptions extends StatefulWidget {
   const signinOptions({super.key});
@@ -38,7 +39,9 @@ class _signinOptionsState extends State<signinOptions> {
                     icon: const Icon(Iconsax.arrow_left)),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => newsScreen()));
+                },
                 child: const Text(
                   "Skip",
                   style: TextStyle(
@@ -54,10 +57,10 @@ class _signinOptionsState extends State<signinOptions> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(30.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: 450,
                 child: Stack(

@@ -31,9 +31,9 @@ class _onBoardingState extends State<onBoarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
-          systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.black),
+          systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: Colors.black),
         ),
       ),
       body: PageView.builder(
