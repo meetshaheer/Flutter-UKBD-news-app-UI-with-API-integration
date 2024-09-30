@@ -257,7 +257,7 @@ class NewWidget extends StatelessWidget {
                 ),
               ),
               Positioned(
-                bottom: 130,
+                bottom: 150,
                 left: 30,
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(30)),
