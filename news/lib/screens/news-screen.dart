@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:news/API/api-call.dart';
+import 'package:news/constants/constant.dart';
 
 class newsScreen extends StatefulWidget {
   const newsScreen({super.key});
@@ -57,9 +59,9 @@ class _newsScreenState extends State<newsScreen> {
                   return Expanded(
                     child: Container(
                       child: ListView.builder(
-                        itemCount: 1,
+                        itemCount: businessData.length,
                         itemBuilder: (context, index) {
-                          var data = businessData[1];
+                          var data = businessData[index];
                           return Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: ClipRRect(
@@ -71,31 +73,57 @@ class _newsScreenState extends State<newsScreen> {
                                 child: Stack(
                                   children: [
                                     Positioned(
-                                      child: Image(
-                                        height: double.infinity,
-                                        fit: BoxFit.fitHeight,
-                                        image: NetworkImage(
-                                          data.urlToImage ?? "https://i.sstatic.net/y9DpT.jpg",
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [
+                                              Color.fromARGB(255, 83, 83, 83),
+                                              Color.fromARGB(255, 209, 209, 209),
+                                            ],
+                                          ),
+                                        ),
+                                        child: Image(
+                                          height: double.infinity,
+                                          fit: BoxFit.fitHeight,
+                                          image: NetworkImage(
+                                            data.urlToImage ?? "https://i.sstatic.net/y9DpT.jpg",
+                                          ),
                                         ),
                                       ),
                                     ),
                                     Positioned(
-                                        top: 20,
-                                        right: 20,
-                                        child: ClipRRect(
-                                          borderRadius: const BorderRadius.all(Radius.circular(10)),
-                                          child: Container(
-                                            color: Colors.red,
-                                            height: 50,
-                                            width: 50,
-                                            child: IconButton(
-                                                onPressed: () {},
-                                                icon: const Icon(
-                                                  Iconsax.save_2,
-                                                  color: Colors.white,
-                                                )),
+                                      top: 20,
+                                      right: 20,
+                                      child: ClipRRect(
+                                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                        child: Container(
+                                          color: Colors.red,
+                                          height: 50,
+                                          width: 50,
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Iconsax.save_2,
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ))
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 20, right: 20, top: 280),
+                                        child: SizedBox(
+                                          child: Text(
+                                            data.title ?? "",
+                                            style:
+                                                const TextStyle(fontFamily: "MontB", fontSize: 20, color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
