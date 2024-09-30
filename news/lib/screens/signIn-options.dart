@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:news/screen-contents/custom-buttons.dart';
 
-class homeView extends StatefulWidget {
-  const homeView({super.key});
+class signinOptions extends StatefulWidget {
+  const signinOptions({super.key});
 
   @override
-  State<homeView> createState() => _homeViewState();
+  State<signinOptions> createState() => _signinOptionsState();
 }
 
-class _homeViewState extends State<homeView> {
+class _signinOptionsState extends State<signinOptions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,11 @@ class _homeViewState extends State<homeView> {
                     Radius.circular(10),
                   ),
                 ),
-                child: IconButton(onPressed: () {}, icon: const Icon(Iconsax.arrow_left)),
+                child: IconButton(
+                    onPressed: () {
+                      SystemNavigator.pop();
+                    },
+                    icon: const Icon(Iconsax.arrow_left)),
               ),
               TextButton(
                 onPressed: () {},
@@ -95,10 +100,10 @@ class _homeViewState extends State<homeView> {
           const Padding(
             padding: EdgeInsets.only(top: 15, left: 30.0, right: 30),
             child: customButton(
-              text: "Continue with Email",
+              text: "Continue with Phone",
               buttonColor: Color(0xffEAE9F1),
               textCOlor: Color.fromARGB(255, 86, 86, 86),
-              iconname: Iconsax.flash_circle,
+              iconname: Iconsax.mobile,
               iconColor: Colors.black,
             ),
           ),
@@ -108,69 +113,11 @@ class _homeViewState extends State<homeView> {
               text: "Sign In with Apple ID",
               buttonColor: Color(0xffEAE9F1),
               textCOlor: Color.fromARGB(255, 86, 86, 86),
-              iconname: Icons.apple,
+              iconname: Icons.apple_sharp,
               iconColor: Colors.black,
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class customButton extends StatelessWidget {
-  const customButton({
-    super.key,
-    required this.text,
-    this.iconname,
-    required this.buttonColor,
-    required this.textCOlor,
-    this.iconColor,
-  });
-
-  final String text;
-  final IconData? iconname;
-  final Color buttonColor;
-  final Color textCOlor;
-  final Color? iconColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          shape: const WidgetStatePropertyAll(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(20),
-              ),
-            ),
-          ),
-          backgroundColor: WidgetStatePropertyAll(buttonColor),
-        ),
-        onPressed: () {},
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              iconname,
-              color: iconColor,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              text,
-              style: TextStyle(
-                fontFamily: "MontM",
-                fontSize: 13,
-                color: textCOlor,
-              ),
-            )
-          ],
-        ),
       ),
     );
   }
