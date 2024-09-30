@@ -15,10 +15,13 @@ class _newsScreenState extends State<newsScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.adjust)),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 30.0),
+          child: IconButton(onPressed: () {}, icon: const Icon(Icons.adjust)),
+        ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 30.0),
             child: Stack(
               children: [
                 Positioned(
@@ -27,6 +30,18 @@ class _newsScreenState extends State<newsScreen> {
                     icon: const Icon(Iconsax.notification4),
                   ),
                 ),
+                const Positioned(
+                  right: 13,
+                  top: 12,
+                  child: CircleAvatar(
+                    radius: 5,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.red,
+                      radius: 3.5,
+                    ),
+                  ),
+                )
               ],
             ),
           )
