@@ -144,8 +144,12 @@ class _newsScreenState extends State<newsScreen> {
                                       child: SizedBox(
                                         child: Text(
                                           data.title ?? "",
-                                          style:
-                                              const TextStyle(fontFamily: "MontB", fontSize: 20, color: Colors.white),
+                                          style: TextStyle(
+                                              fontFamily: "MontB",
+                                              fontSize: 20,
+                                              color: data.urlToImage == null
+                                                  ? const Color.fromARGB(255, 47, 47, 47)
+                                                  : Colors.white),
                                         ),
                                       ),
                                     ),
